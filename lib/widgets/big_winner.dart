@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WinnerBandora extends StatelessWidget {
-  const WinnerBandora({super.key});
+class BigWinnerBandora extends StatelessWidget {
+  const BigWinnerBandora({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class WinnerBandora extends StatelessWidget {
               height: 50,
             ),
             const Text(
-              '💪 تستاهل بريك يا وحش',
+              '🥳 تستاهل باندورة كبيرة',
               style: TextStyle(
                   fontSize: 22,
                   color: Colors.black,

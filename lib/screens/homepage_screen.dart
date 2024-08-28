@@ -12,7 +12,7 @@ class HomepageScreen extends StatefulWidget {
 }
 
 class HomepageScreenState extends State<HomepageScreen> {
-  Duration _duration = const Duration(minutes: 2);
+  Duration _duration = const Duration(minutes: 25);
   Timer? _timer;
   double _remainingTimePercentage = 1.0;
   bool _isTimerFinished = false;
@@ -26,7 +26,7 @@ class HomepageScreenState extends State<HomepageScreen> {
 
     setState(() {
       _timerStarted = true;
-      _isTimerFinished = false;
+      _isTimerFinished = false; // إعادة تعيين حالة انتهاء التايمر عند البدء
     });
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -34,27 +34,23 @@ class HomepageScreenState extends State<HomepageScreen> {
         setState(() {
           _duration -= const Duration(seconds: 1);
           _remainingTimePercentage =
-              _duration.inSeconds / (_isShortBreak ? 60 : 120);
+              _duration.inSeconds / (_isShortBreak ? 300 : 1500);
         });
       } else {
+        _timer!.cancel(); // إلغاء التايمر عند انتهاء الوقت
+        setState(() {
+          _isTimerFinished = true; // تحديث حالة انتهاء التايمر
+          _timerStarted = false; // تعيين أن التايمر لم يعد قيد التشغيل
+        });
+
         if (!_isShortBreak) {
-          // إذا انتهت فترة الـ 2 دقيقة، قم ببدء فترة الراحة القصيرة
-          setState(() {
-            _isTimerFinished = true;
-            _isShortBreak = true;
-            _duration =
-                const Duration(minutes: 1); // تعيين الوقت الجديد إلى 1 دقيقة
-            _remainingTimePercentage = _duration.inSeconds / 60;
-          });
+          _isShortBreak = true;
+          _duration = const Duration(minutes: 5);
+          _remainingTimePercentage = 1.0;
         } else {
-          // إذا انتهت فترة الراحة القصيرة، قم بإعادة تعيين الوقت إلى 2 دقيقة
-          setState(() {
-            _isTimerFinished = false;
-            _isShortBreak = false;
-            _duration =
-                const Duration(minutes: 2); // تعيين الوقت الجديد إلى 2 دقيقة
-            _remainingTimePercentage = _duration.inSeconds / 120;
-          });
+          _isShortBreak = false;
+          _duration = const Duration(minutes: 25);
+          _remainingTimePercentage = 1.0;
         }
       }
     });
@@ -71,14 +67,13 @@ class HomepageScreenState extends State<HomepageScreen> {
       _timer!.cancel();
     }
 
-    // تأكيد عدم بدء التايمر تلقائيًا عند تغيير الفترة الزمنية
     setState(() {
-      _timerStarted = false; // تأكد من أن التايمر لم يبدأ بعد
+      _timerStarted = false;
       _isTimerFinished = false;
       _duration = _isShortBreak
-          ? const Duration(minutes: 1)
-          : const Duration(minutes: 2);
-      _remainingTimePercentage = _isShortBreak ? 1.0 : 1.0;
+          ? const Duration(minutes: 5)
+          : const Duration(minutes: 25);
+      _remainingTimePercentage = 1.0;
     });
   }
 
@@ -102,7 +97,8 @@ class HomepageScreenState extends State<HomepageScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 75),
+            padding: const EdgeInsets.only(
+                left: 34, right: 34, top: 150, bottom: 34),
             child: Container(
               height: 165,
               width: double.infinity,
@@ -118,17 +114,13 @@ class HomepageScreenState extends State<HomepageScreen> {
               ),
             ),
           ),
-          if (!_isTimerFinished)
-            const Padding(
-              padding: EdgeInsets.all(34),
-              child:
-                  Bandora_Container(), // عرض Bandora_Container عندما الوقت لم ينته
-            )
-          else
-            const Padding(
-              padding: EdgeInsets.all(34),
-              child: WinnerBandora(), // عرض WinnerBandora عندما ينتهي الوقت
-            ),
+          // عرض الودجت بناءً على حالة التايمر وفترة العمل/الاستراحة
+          Padding(
+            padding: const EdgeInsets.only(left: 34, right: 34, bottom: 34),
+            child: !_isShortBreak
+                ? const Bandora_Container() // عرض WinnerBandora خلال فترة الدقيقة (الاستراحة القصيرة)
+                : const WinnerBandora(), // عرض Bandora_Container خلال فترة الدقيقتين (العمل)
+          ),
           Stack(
             alignment: Alignment.center,
             children: [
