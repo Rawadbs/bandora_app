@@ -33,9 +33,11 @@ class WinnerBandora extends StatelessWidget {
             const Text(
               '💪 تستاهل بريك يا وحش',
               style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
+                fontSize: 22,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'TheYear',
+              ),
             ),
           ],
         ),

@@ -28,16 +28,18 @@ class BigWinnerBandora extends StatelessWidget {
             const SizedBox(
               height: 6,
             ),
-            Image.asset('assets/images/winner_bandora.png'),
+            Image.asset('assets/images/big_winner.png'),
             const SizedBox(
               height: 50,
             ),
             const Text(
-              '🥳 تستاهل باندورة كبيرة',
+              '🥳 تستاهل بندورة كبيرة',
               style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
+                fontSize: 22,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'TheYear',
+              ),
             ),
           ],
         ),

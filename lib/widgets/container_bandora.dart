@@ -38,7 +38,10 @@ class BandoraContainer extends StatelessWidget {
                     visible: words.contains('البندورة الثانية'),
                     child: const Text(
                       'البندورة الثانية',
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontFamily: 'TheYear',
+                          color: Color.fromRGBO(184, 184, 184, 60)),
                     ),
                   ),
                 ),
@@ -51,7 +54,10 @@ class BandoraContainer extends StatelessWidget {
                     visible: words.contains('البندورة الاولى'),
                     child: const Text(
                       'البندورة الاولى',
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontFamily: 'TheYear',
+                          color: Color.fromRGBO(184, 184, 184, 60)),
                     ),
                   ),
                 ),
@@ -66,7 +72,10 @@ class BandoraContainer extends StatelessWidget {
                     visible: words.contains('البندورة الاخيرة'),
                     child: const Text(
                       'البندورة الاخيرة',
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontFamily: 'TheYear',
+                          color: Color.fromRGBO(184, 184, 184, 60)),
                     ),
                   ),
                 ),
@@ -79,7 +88,11 @@ class BandoraContainer extends StatelessWidget {
                     visible: words.contains('البندورة الثالثة'),
                     child: const Text(
                       'البندورة الثالثة',
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'TheYear',
+                        color: Color.fromRGBO(184, 184, 184, 60),
+                      ),
                     ),
                   ),
                 ),

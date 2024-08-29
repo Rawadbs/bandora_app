@@ -1,5 +1,5 @@
 import 'package:bandora_app/Bloc/timercubit.dart';
-import 'package:bandora_app/screens/homepage_screen.dart';
+import 'package:bandora_app/screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomepageScreen(),
+        home: const SplashScreen(), // تعيين شاشة Splash كنقطة دخول
         debugShowCheckedModeBanner: false,
       ),
     );
