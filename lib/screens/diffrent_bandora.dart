@@ -1,26 +1,21 @@
-import 'dart:async';
-
-import 'package:bandora_app/screens/homepage_screen.dart';
 import 'package:flutter/material.dart';
 
 class DiffrentBandora extends StatelessWidget {
-  const DiffrentBandora({super.key});
+  const DiffrentBandora(
+      {super.key, required this.nextPage, required this.pagenumber});
+  final PageController nextPage;
+  final int pagenumber;
 
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 15), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const HomepageScreen(),
-        ),
-      );
-    });
     return Scaffold(
       backgroundColor: const Color(0xfff1f1f1),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 50),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -140,6 +135,54 @@ class DiffrentBandora extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 50,
+            ),
+            InkWell(
+              onTap: () {
+                nextPage.animateToPage(
+                  3,
+                  duration: const Duration(milliseconds: 700),
+                  curve: Curves.easeIn,
+                );
+              },
+              child: Container(
+                width: 156,
+                height: 56,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xffCB463C),
+                ),
+                child: const Center(
+                  child: Text(
+                    'ابدء التطبيق',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'TheYear',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (int i = 0; i < 3; i++)
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    width: i == pagenumber ? 25 : 6,
+                    height: 6,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: i == pagenumber
+                            ? const Color(0xffCB463C)
+                            : Colors.grey),
+                  ),
+              ],
+            )
           ],
         ),
       ),

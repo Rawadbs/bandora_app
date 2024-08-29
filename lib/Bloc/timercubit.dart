@@ -83,7 +83,8 @@ class TimerCubit extends Cubit<TimerState> {
         isShortBreak: false,
         duration: const Duration(minutes: 25),
         remainingTimePercentage: 1.0,
-        isTimerFinished: true,
+        isTimerFinished:
+            false, // تعديل هنا لضمان أن التايمر لا يبدأ في حالة انتهائه
       ));
     } else if (!state.isShortBreak) {
       int newBreaksCount = state.breaksCount + 1;
@@ -93,12 +94,18 @@ class TimerCubit extends Cubit<TimerState> {
           duration: const Duration(minutes: 25),
           remainingTimePercentage: 1.0,
           isShortBreak: false,
+          breaksCount: newBreaksCount, // إضافة تحديث لعدد البريكات
+          isTimerFinished:
+              false, // تعديل هنا لضمان أن التايمر لا يبدأ في حالة انتهائه
         ));
       } else {
         emit(state.copyWith(
           isShortBreak: true,
           duration: const Duration(minutes: 5),
           remainingTimePercentage: 1.0,
+          breaksCount: newBreaksCount, // إضافة تحديث لعدد البريكات
+          isTimerFinished:
+              false, // تعديل هنا لضمان أن التايمر لا يبدأ في حالة انتهائه
         ));
       }
     } else {
@@ -106,7 +113,8 @@ class TimerCubit extends Cubit<TimerState> {
         isShortBreak: false,
         duration: const Duration(minutes: 25),
         remainingTimePercentage: 1.0,
-        isTimerFinished: true,
+        isTimerFinished:
+            false, // تعديل هنا لضمان أن التايمر لا يبدأ في حالة انتهائه
       ));
     }
   }
@@ -117,9 +125,8 @@ class TimerCubit extends Cubit<TimerState> {
     emit(state.copyWith(
       isTimerFinished: false,
       showBigWinner: false,
-      duration: state.isShortBreak
-          ? const Duration(minutes: 5)
-          : const Duration(minutes: 25),
+      isShortBreak: false, // إعادة تعيين البريك إلى بريك قصير
+      duration: const Duration(minutes: 25), // إعادة التايمر إلى 25 دقيقة
       remainingTimePercentage: 1.0,
     ));
   }
