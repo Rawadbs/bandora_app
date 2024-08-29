@@ -23,7 +23,7 @@ class TimerState {
     return TimerState(
       duration: const Duration(minutes: 25),
       remainingTimePercentage: 1.0,
-      isTimerFinished: false,
+      isTimerFinished: true,
       isShortBreak: false,
       showBigWinner: false,
       breaksCount: 0,
@@ -76,6 +76,23 @@ class TimerCubit extends Cubit<TimerState> {
     });
   }
 
+  void pauseTimer() {
+    _timer?.cancel();
+    emit(state.copyWith(isTimerFinished: true)); // تغيير حالة المؤقت إلى متوقف
+  }
+
+  void resetTimer() {
+    _timer?.cancel();
+
+    emit(state.copyWith(
+      isTimerFinished: true,
+      showBigWinner: false,
+      isShortBreak: false, // إعادة تعيين البريك إلى بريك قصير
+      duration: const Duration(minutes: 25), // إعادة التايمر إلى 25 دقيقة
+      remainingTimePercentage: 1.0,
+    ));
+  }
+
   void handleTimerFinish() {
     if (state.showBigWinner) {
       emit(state.copyWith(
@@ -83,8 +100,7 @@ class TimerCubit extends Cubit<TimerState> {
         isShortBreak: false,
         duration: const Duration(minutes: 25),
         remainingTimePercentage: 1.0,
-        isTimerFinished:
-            false, // تعديل هنا لضمان أن التايمر لا يبدأ في حالة انتهائه
+        isTimerFinished: true,
       ));
     } else if (!state.isShortBreak) {
       int newBreaksCount = state.breaksCount + 1;
@@ -94,18 +110,16 @@ class TimerCubit extends Cubit<TimerState> {
           duration: const Duration(minutes: 25),
           remainingTimePercentage: 1.0,
           isShortBreak: false,
-          breaksCount: newBreaksCount, // إضافة تحديث لعدد البريكات
-          isTimerFinished:
-              false, // تعديل هنا لضمان أن التايمر لا يبدأ في حالة انتهائه
+          breaksCount: newBreaksCount,
+          isTimerFinished: true,
         ));
       } else {
         emit(state.copyWith(
           isShortBreak: true,
           duration: const Duration(minutes: 5),
           remainingTimePercentage: 1.0,
-          breaksCount: newBreaksCount, // إضافة تحديث لعدد البريكات
-          isTimerFinished:
-              false, // تعديل هنا لضمان أن التايمر لا يبدأ في حالة انتهائه
+          breaksCount: newBreaksCount,
+          isTimerFinished: true,
         ));
       }
     } else {
@@ -113,22 +127,9 @@ class TimerCubit extends Cubit<TimerState> {
         isShortBreak: false,
         duration: const Duration(minutes: 25),
         remainingTimePercentage: 1.0,
-        isTimerFinished:
-            false, // تعديل هنا لضمان أن التايمر لا يبدأ في حالة انتهائه
+        isTimerFinished: true,
       ));
     }
-  }
-
-  void resetTimer() {
-    _timer?.cancel();
-
-    emit(state.copyWith(
-      isTimerFinished: false,
-      showBigWinner: false,
-      isShortBreak: false, // إعادة تعيين البريك إلى بريك قصير
-      duration: const Duration(minutes: 25), // إعادة التايمر إلى 25 دقيقة
-      remainingTimePercentage: 1.0,
-    ));
   }
 
   @override

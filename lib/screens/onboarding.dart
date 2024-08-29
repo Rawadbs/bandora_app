@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bandora_app/Bloc/timercubit.dart';
 import 'package:bandora_app/screens/bandorais.dart';
 import 'package:bandora_app/screens/diffrent_bandora.dart';
 import 'package:bandora_app/screens/homepage_screen.dart';
 import 'package:bandora_app/screens/splash.dart';
-import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -12,34 +14,46 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  PageController nextpage = PageController();
-  int pagenumber = 0;
+  PageController nextPage = PageController();
+  int pageNumber = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        onPageChanged: (value) {
-          setState(() {
-            pagenumber = value;
-          });
-        },
-        controller: nextpage,
-        children: [
-          SplashScreen(
-            nextPage: nextpage,
-            pagenumber: pagenumber,
-          ),
-          ExplaneBandora(
-            nextPage: nextpage,
-            pagenumber: pagenumber,
-          ),
-          DiffrentBandora(
-            nextPage: nextpage,
-            pagenumber: pagenumber,
-          ),
-          const HomepageScreen(),
-        ],
+    return BlocProvider(
+      create: (context) => TimerCubit(),
+      child: Scaffold(
+        body: PageView(
+          onPageChanged: (value) {
+            setState(() {
+              pageNumber = value;
+              if (pageNumber == 3) {
+                // Navigate to HomepageScreen and remove the onboarding stack from history
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomepageScreen(),
+                  ),
+                );
+              }
+            });
+          },
+          controller: nextPage,
+          children: [
+            SplashScreen(
+              nextPage: nextPage,
+              pagenumber: pageNumber,
+            ),
+            ExplaneBandora(
+              nextPage: nextPage,
+              pagenumber: pageNumber,
+            ),
+            DiffrentBandora(
+              nextPage: nextPage,
+              pagenumber: pageNumber,
+            ),
+            const HomepageScreen(),
+          ],
+        ),
       ),
     );
   }

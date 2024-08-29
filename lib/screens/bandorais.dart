@@ -14,6 +14,8 @@ class ExplaneBandora extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 60),
+
             Image.asset('assets/images/mixer.png'),
             const SizedBox(height: 20),
             const Text(
@@ -36,7 +38,6 @@ class ExplaneBandora extends StatelessWidget {
                       fontSize: 18,
                       color: Colors.black,
                       fontFamily: 'TheYear',
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   TextSpan(
@@ -61,7 +62,6 @@ class ExplaneBandora extends StatelessWidget {
                       fontSize: 18,
                       color: Colors.black,
                       fontFamily: 'TheYear',
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   TextSpan(
@@ -78,6 +78,7 @@ class ExplaneBandora extends StatelessWidget {
             const SizedBox(height: 10),
             RichText(
               textDirection: TextDirection.rtl,
+              textAlign: TextAlign.center,
               text: const TextSpan(
                 children: [
                   TextSpan(
@@ -86,7 +87,6 @@ class ExplaneBandora extends StatelessWidget {
                       fontSize: 18,
                       color: Colors.black,
                       fontFamily: 'TheYear',
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   TextSpan(
@@ -120,16 +120,15 @@ class ExplaneBandora extends StatelessWidget {
                   child: Text(
                     'التالي',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 26,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                       fontFamily: 'TheYear',
                     ),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

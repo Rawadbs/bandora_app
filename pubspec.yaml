@@ -79,7 +79,7 @@ flutter:
   fonts:
     - family: TheYear
       fonts:
-        - asset: fonts/TheYearofTheCamel-ExtraBold.otf
+        - asset: fonts/alfont_com_HS-Ishraq-Bold.otf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

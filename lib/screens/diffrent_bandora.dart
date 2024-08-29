@@ -14,7 +14,7 @@ class DiffrentBandora extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 50),
+            const SizedBox(height: 100),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -155,18 +155,17 @@ class DiffrentBandora extends StatelessWidget {
                 ),
                 child: const Center(
                   child: Text(
-                    'ابدء التطبيق',
+                    'هيا لنبدء  ',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 26,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                       fontFamily: 'TheYear',
                     ),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

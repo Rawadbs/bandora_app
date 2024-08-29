@@ -47,24 +47,33 @@ class PizzaTimerPainter extends CustomPainter {
 class CrossLinesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = const Color.fromRGBO(184, 184, 184, 60)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2;
+    Paint paint = Paint()..color = const Color.fromRGBO(184, 184, 184, 60);
 
-    // رسم الخط الأفقي
-    canvas.drawLine(
-      Offset(0, size.height / 2),
-      Offset(size.width, size.height / 2),
-      paint,
+    const double borderRadius = 5; // تحديد نصف القطر للزوايا المستديرة
+    const double padding = 50.0; // المسافة من الحافة
+
+    // رسم المستطيل ذو الزوايا المستديرة
+    RRect topLine = RRect.fromLTRBR(
+      padding,
+      size.height / 2 - 2.5,
+      size.width - padding,
+      size.height / 2 + 2.5,
+      const Radius.circular(borderRadius),
     );
 
-    // رسم الخط الرأسي
-    canvas.drawLine(
-      Offset(size.width / 2, 0),
-      Offset(size.width / 2, size.height),
-      paint,
+    RRect leftLine = RRect.fromLTRBR(
+      size.width / 2 - 2.5,
+      padding,
+      size.width / 2 + 2.5,
+      size.height - padding,
+      const Radius.circular(borderRadius),
     );
+
+    // رسم المستطيل الأفقي
+    canvas.drawRRect(topLine, paint);
+
+    // رسم المستطيل الرأسي
+    canvas.drawRRect(leftLine, paint);
   }
 
   @override

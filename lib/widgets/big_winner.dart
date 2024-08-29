@@ -15,10 +15,8 @@ class BigWinnerBandora extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Color(0x19000000),
-            blurRadius: 20,
-            offset: Offset(0, 10),
-            spreadRadius: 0,
+            color: Color.fromARGB(15, 0, 0, 0),
+            blurRadius: 30,
           ),
         ],
       ),

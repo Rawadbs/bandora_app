@@ -18,10 +18,8 @@ class BandoraContainer extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Color(0x19000000),
-            blurRadius: 20,
-            offset: Offset(0, 10),
-            spreadRadius: 0,
+            color: Color.fromARGB(15, 0, 0, 0),
+            blurRadius: 30,
           ),
         ],
       ),
@@ -33,11 +31,11 @@ class BandoraContainer extends StatelessWidget {
             Row(
               children: [
                 Transform.translate(
-                  offset: const Offset(20, -30),
+                  offset: const Offset(80, 0),
                   child: Visibility(
                     visible: words.contains('البندورة الثانية'),
                     child: const Text(
-                      'البندورة الثانية',
+                      'البندورة\n الثانية',
                       style: TextStyle(
                           fontSize: 22,
                           fontFamily: 'TheYear',
@@ -49,11 +47,11 @@ class BandoraContainer extends StatelessWidget {
                   width: 50,
                 ),
                 Transform.translate(
-                  offset: const Offset(25, -30),
+                  offset: const Offset(80, 0),
                   child: Visibility(
                     visible: words.contains('البندورة الاولى'),
                     child: const Text(
-                      'البندورة الاولى',
+                      'البندورة \n الاولى',
                       style: TextStyle(
                           fontSize: 22,
                           fontFamily: 'TheYear',
@@ -67,11 +65,11 @@ class BandoraContainer extends StatelessWidget {
             Row(
               children: [
                 Transform.translate(
-                  offset: const Offset(20, 30),
+                  offset: const Offset(80, 0),
                   child: Visibility(
                     visible: words.contains('البندورة الاخيرة'),
                     child: const Text(
-                      'البندورة الاخيرة',
+                      'البندورة\n الاخيرة',
                       style: TextStyle(
                           fontSize: 22,
                           fontFamily: 'TheYear',
@@ -83,11 +81,11 @@ class BandoraContainer extends StatelessWidget {
                   width: 50,
                 ),
                 Transform.translate(
-                  offset: const Offset(20, 30),
+                  offset: const Offset(80, 0),
                   child: Visibility(
                     visible: words.contains('البندورة الثالثة'),
                     child: const Text(
-                      'البندورة الثالثة',
+                      'البندورة \n الثالثة',
                       style: TextStyle(
                         fontSize: 22,
                         fontFamily: 'TheYear',

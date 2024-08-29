@@ -46,10 +46,8 @@ class HomepageScreen extends StatelessWidget {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0x19000000),
-                          blurRadius: 20,
-                          offset: Offset(0, 10),
-                          spreadRadius: 0,
+                          color: Color.fromARGB(15, 0, 0, 0),
+                          blurRadius: 30,
                         ),
                       ],
                     ),
@@ -87,6 +85,7 @@ class HomepageScreen extends StatelessWidget {
                 return Stack(
                   alignment: Alignment.center,
                   children: [
+                    // الدائرة الكبيرة حول الزايد أو المربع
                     Container(
                       width: 115,
                       height: 115,
@@ -99,41 +98,67 @@ class HomepageScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    InkWell(
-                      overlayColor:
-                          const WidgetStatePropertyAll(Colors.transparent),
-                      onTap: () {
-                        if (!state.isTimerFinished) {
+                    // إظهار الزايد فقط إذا لم يكن التايمر قد بدأ
+                    if (state.isTimerFinished)
+                      InkWell(
+                        overlayColor:
+                            const WidgetStatePropertyAll(Colors.transparent),
+                        onTap: () {
                           context.read<TimerCubit>().startTimer();
-                        }
-                      },
-                      child: CustomPaint(
-                        painter: PizzaTimerPainter(
-                            state.remainingTimePercentage,
-                            state.isTimerFinished),
-                        size: const Size(95, 95),
-                      ),
-                    ),
-                    InkWell(
-                      overlayColor:
-                          const WidgetStatePropertyAll(Colors.transparent),
-                      onTap: () {
-                        if (!state.isTimerFinished) {
-                          context.read<TimerCubit>().resetTimer();
-                        }
-                      },
-                      child: Container(
-                        width: 25,
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                            color: const Color(0xffCB463C),
-                            width: 2,
-                          ),
+                        },
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CustomPaint(
+                              painter: PizzaTimerPainter(
+                                  state.remainingTimePercentage,
+                                  state.isTimerFinished),
+                              size: const Size(95, 95),
+                            ),
+                            const Icon(
+                              Icons.add,
+                              size: 60,
+                              color: Color(
+                                  0xffA6E22A), // يمكنك تعديل اللون حسب الرغبة
+                            ),
+                          ],
                         ),
                       ),
-                    ),
+
+                    // إظهار المربع فقط عندما يكون التايمر نشطاً
+                    if (!state.isTimerFinished)
+                      InkWell(
+                        overlayColor:
+                            const WidgetStatePropertyAll(Colors.transparent),
+                        onTap: () {
+                          context.read<TimerCubit>().pauseTimer();
+                        },
+                        onLongPress: () {
+                          context.read<TimerCubit>().resetTimer();
+                        },
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CustomPaint(
+                              painter: PizzaTimerPainter(
+                                  state.remainingTimePercentage,
+                                  state.isTimerFinished),
+                              size: const Size(95, 95),
+                            ),
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: const Color(0xffCB463C),
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                   ],
                 );
               },

@@ -13,10 +13,8 @@ class WinnerBandora extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(22)),
         boxShadow: [
           BoxShadow(
-            color: Color(0x19000000),
-            blurRadius: 20,
-            offset: Offset(0, 10),
-            spreadRadius: 0,
+            color: Color.fromARGB(15, 0, 0, 0),
+            blurRadius: 30,
           ),
         ],
       ),

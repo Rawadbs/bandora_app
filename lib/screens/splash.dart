@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/splash.png',
+              'assets/images/logo.png',
             ), // أضف هنا مسار صورة الشعار
             const SizedBox(height: 50),
             InkWell(
@@ -38,16 +38,15 @@ class SplashScreen extends StatelessWidget {
                   child: Text(
                     'التالي',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 26,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                       fontFamily: 'TheYear',
                     ),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
