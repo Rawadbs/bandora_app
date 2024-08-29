@@ -22,37 +22,41 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return BlocProvider(
       create: (context) => TimerCubit(),
       child: Scaffold(
-        body: PageView(
-          onPageChanged: (value) {
-            setState(() {
-              pageNumber = value;
-              if (pageNumber == 3) {
-                // Navigate to HomepageScreen and remove the onboarding stack from history
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomepageScreen(),
-                  ),
-                );
-              }
-            });
-          },
-          controller: nextPage,
-          children: [
-            SplashScreen(
-              nextPage: nextPage,
-              pagenumber: pageNumber,
-            ),
-            ExplaneBandora(
-              nextPage: nextPage,
-              pagenumber: pageNumber,
-            ),
-            DiffrentBandora(
-              nextPage: nextPage,
-              pagenumber: pageNumber,
-            ),
-            const HomepageScreen(),
-          ],
+        body: Directionality(
+          textDirection: TextDirection.rtl, // ضبط الاتجاه إلى اليمين إلى اليسار
+
+          child: PageView(
+            onPageChanged: (value) {
+              setState(() {
+                pageNumber = value;
+                if (pageNumber == 3) {
+                  // Navigate to HomepageScreen and remove the onboarding stack from history
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomepageScreen(),
+                    ),
+                  );
+                }
+              });
+            },
+            controller: nextPage,
+            children: [
+              SplashScreen(
+                nextPage: nextPage,
+                pagenumber: pageNumber,
+              ),
+              ExplaneBandora(
+                nextPage: nextPage,
+                pagenumber: pageNumber,
+              ),
+              DiffrentBandora(
+                nextPage: nextPage,
+                pagenumber: pageNumber,
+              ),
+              const HomepageScreen(),
+            ],
+          ),
         ),
       ),
     );
