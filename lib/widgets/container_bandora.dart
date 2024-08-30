@@ -29,68 +29,82 @@ class BandoraContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Transform.translate(
-                  offset: const Offset(80, 0),
-                  child: Visibility(
-                    visible: words.contains('البندورة الثانية'),
-                    child: const Text(
-                      'البندورة\n الثانية',
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: 'TheYear',
-                          color: Color.fromRGBO(184, 184, 184, 60)),
-                    ),
+                Visibility(
+                  visible: words.contains('البندورة الثانية'),
+                  replacement: Image.asset(
+                    'assets/images/winner_bandora.png', // استبدل your_image.png بمسار الصورة الخاص بك
+                    width: 50,
+                    height: 50,
+                  ),
+                  child: const Text(
+                    'البندورة\n الثانية',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'TheYear',
+                        color: Color.fromRGBO(184, 184, 184, 60)),
                   ),
                 ),
                 const SizedBox(
                   width: 50,
                 ),
-                Transform.translate(
-                  offset: const Offset(80, 0),
-                  child: Visibility(
-                    visible: words.contains('البندورة الاولى'),
-                    child: const Text(
-                      'البندورة \n الاولى',
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: 'TheYear',
-                          color: Color.fromRGBO(184, 184, 184, 60)),
-                    ),
+                Visibility(
+                  visible: words.contains('البندورة الاولى'),
+                  replacement: Image.asset(
+                    'assets/images/winner_bandora.png', // استبدل your_image.png بمسار الصورة الخاص بك
+                    width: 50,
+                    height: 50,
+                  ),
+                  child: const Text(
+                    'البندورة \n الاولى',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'TheYear',
+                        color: Color.fromRGBO(184, 184, 184, 60)),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 40),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Transform.translate(
-                  offset: const Offset(80, 0),
-                  child: Visibility(
-                    visible: words.contains('البندورة الاخيرة'),
-                    child: const Text(
-                      'البندورة\n الاخيرة',
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: 'TheYear',
-                          color: Color.fromRGBO(184, 184, 184, 60)),
-                    ),
+                Visibility(
+                  visible: words.contains('البندورة الاخيرة'),
+                  replacement: Image.asset(
+                    'assets/images/winner_bandora.png', // استبدل your_image.png بمسار الصورة الخاص بك
+                    width: 50,
+                    height: 50,
+                  ),
+                  child: const Text(
+                    'البندورة\n الاخيرة',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'TheYear',
+                        color: Color.fromRGBO(184, 184, 184, 60)),
                   ),
                 ),
                 const SizedBox(
                   width: 50,
                 ),
-                Transform.translate(
-                  offset: const Offset(80, 0),
-                  child: Visibility(
-                    visible: words.contains('البندورة الثالثة'),
-                    child: const Text(
-                      'البندورة \n الثالثة',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontFamily: 'TheYear',
-                        color: Color.fromRGBO(184, 184, 184, 60),
-                      ),
+                Visibility(
+                  visible: words.contains('البندورة الثالثة'),
+                  replacement: Image.asset(
+                    'assets/images/winner_bandora.png', // استبدل your_image.png بمسار الصورة الخاص بك
+                    width: 50,
+                    height: 50,
+                  ),
+                  child: const Text(
+                    'البندورة \n الثالثة',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontFamily: 'TheYear',
+                      color: Color.fromRGBO(184, 184, 184, 60),
                     ),
                   ),
                 ),

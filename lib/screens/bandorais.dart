@@ -14,12 +14,12 @@ class ExplaneBandora extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 60),
-
             Image.asset('assets/images/mixer.png'),
             const SizedBox(height: 20),
             const Text(
-              '! مؤقت بندورة',
+              'مؤقت بندورة !',
+              textAlign: TextAlign.right,
+              textDirection: TextDirection.rtl,
               style: TextStyle(
                 fontSize: 22,
                 color: Colors.black,
@@ -90,7 +90,7 @@ class ExplaneBandora extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: 'تحصل على بريك لمدة 25 دقيقة',
+                    text: 'تحصل على بريك\n لمدة 25 دقيقة',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -135,8 +135,8 @@ class ExplaneBandora extends StatelessWidget {
                 for (int i = 0; i < 3; i++)
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    width: i == pagenumber ? 25 : 6,
-                    height: 6,
+                    width: i == pagenumber ? 25 : 10,
+                    height: 10,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         color: i == pagenumber

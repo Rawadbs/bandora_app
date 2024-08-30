@@ -14,7 +14,7 @@ class DiffrentBandora extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 100),
+            const SizedBox(height: 70),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -26,7 +26,7 @@ class DiffrentBandora extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              '! فكرة التطبيق ',
+              'فكرة التطبيق !',
               style: TextStyle(
                 fontSize: 22,
                 color: Colors.black,
@@ -49,7 +49,7 @@ class DiffrentBandora extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: '= 🍅',
+                    text: '= بندورة',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -65,7 +65,7 @@ class DiffrentBandora extends StatelessWidget {
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: ' 🍅 صغيرة =',
+                    text: ' بندورة صغيرة =',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -90,7 +90,7 @@ class DiffrentBandora extends StatelessWidget {
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: ' 🍅 كبيرة =',
+                    text: ' بندورة كبيرة =',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -116,7 +116,7 @@ class DiffrentBandora extends StatelessWidget {
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: '4 🍅',
+                    text: '4 بندورات',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -125,7 +125,7 @@ class DiffrentBandora extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: ' =  🍅 كبيرة',
+                    text: ' =  بندورة كبيرة',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -155,7 +155,7 @@ class DiffrentBandora extends StatelessWidget {
                 ),
                 child: const Center(
                   child: Text(
-                    'هيا لنبدء  ',
+                    'خلينا نبدء  ',
                     style: TextStyle(
                       fontSize: 26,
                       color: Colors.white,
@@ -172,8 +172,8 @@ class DiffrentBandora extends StatelessWidget {
                 for (int i = 0; i < 3; i++)
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    width: i == pagenumber ? 25 : 6,
-                    height: 6,
+                    width: i == pagenumber ? 25 : 10,
+                    height: 10,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         color: i == pagenumber

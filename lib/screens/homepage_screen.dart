@@ -146,10 +146,11 @@ class HomepageScreen extends StatelessWidget {
                               size: const Size(95, 95),
                             ),
                             Container(
-                              width: 40,
-                              height: 40,
+                              width: 30,
+                              height: 30,
                               decoration: BoxDecoration(
                                 color: Colors.white,
+                                borderRadius: BorderRadius.circular(4),
                                 border: Border.all(
                                   color: const Color(0xffCB463C),
                                   width: 2,

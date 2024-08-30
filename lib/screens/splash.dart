@@ -15,6 +15,8 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 110),
+
             Image.asset(
               'assets/images/logo.png',
             ), // أضف هنا مسار صورة الشعار
@@ -53,8 +55,8 @@ class SplashScreen extends StatelessWidget {
                 for (int i = 0; i < 3; i++)
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    width: i == pagenumber ? 25 : 6,
-                    height: 6,
+                    width: i == pagenumber ? 25 : 10,
+                    height: 10,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         color: i == pagenumber
